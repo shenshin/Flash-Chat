@@ -2,6 +2,9 @@
 //  RegisterViewController.swift
 //  Flash Chat
 //
+//  Created by Ales Shenshin on 23/12/2018.
+//  Copyright (c) 2018 Shenshin. All rights reserved.
+//
 //  This is the View Controller which registers new users with Firebase
 //
 

@@ -2,6 +2,9 @@
 //  AppDelegate.swift
 //  Flash Chat
 //
+//  Created by Ales Shenshin on 23/12/2018.
+//  Copyright (c) 2018 Shenshin. All rights reserved.
+//
 //  The App Delegate listens for events from the system. 
 //  It recieves application level messages like did the app finish launching or did it terminate etc. 
 //

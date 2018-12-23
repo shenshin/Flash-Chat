@@ -2,6 +2,9 @@
 //  LogInViewController.swift
 //  Flash Chat
 //
+//  Created by Ales Shenshin on 23/12/2018.
+//  Copyright (c) 2018 Shenshin. All rights reserved.
+//
 //  This is the view controller where users login
 
 
