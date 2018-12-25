@@ -44,8 +44,7 @@ class RegisterViewController: UIViewController {
                 self.errorMessage.backgroundColor = UIColor.white.withAlphaComponent(0.5)
                 
             } else {
-                print("Пользователь заригистрован по email адресу:")
-                print(user!.user.email!)
+                print("Пользователь заригистрован по email адресу: \(user!.user.email!)")
                 self.errorMessage.text = ""
                 self.errorMessage.backgroundColor = UIColor.clear
                 self.performSegue(withIdentifier: "goToChat", sender: self)
