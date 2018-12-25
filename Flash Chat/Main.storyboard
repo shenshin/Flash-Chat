@@ -31,6 +31,9 @@
                                     <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="xYK-ej-9R9" kind="push" identifier="goToLogin" id="whp-jr-CTM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWY-w2-6La">
                                 <rect key="frame" x="0.0" y="646" width="414" height="45"/>
@@ -106,7 +109,7 @@
                                             <constraint firstAttribute="height" constant="30" id="t4i-pt-0WT"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67C-Ey-AV3">
                                         <rect key="frame" x="16" y="165" width="382" height="30"/>
@@ -122,17 +125,30 @@
                                             <action selector="registerPressed:" destination="qQg-wA-Esh" eventType="touchUpInside" id="VlE-dg-fmH"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pu1-n2-nSc" userLabel="Error Message">
+                                        <rect key="frame" x="16" y="205" width="382" height="60"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="PKf-GV-7yY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="pu1-n2-nSc" secondAttribute="trailing" constant="16" id="4Z1-O8-xF7"/>
                                     <constraint firstItem="67C-Ey-AV3" firstAttribute="leading" secondItem="ffX-Mv-79o" secondAttribute="leading" constant="16" id="8Zz-Te-nzS"/>
                                     <constraint firstAttribute="bottom" secondItem="67C-Ey-AV3" secondAttribute="bottom" constant="89" id="8iV-0n-yq1"/>
                                     <constraint firstAttribute="trailing" secondItem="SYb-Xx-USU" secondAttribute="trailing" constant="16" id="AGn-Pb-wvl"/>
                                     <constraint firstAttribute="centerX" secondItem="SYb-Xx-USU" secondAttribute="centerX" id="AWf-fZ-SkT"/>
                                     <constraint firstItem="67C-Ey-AV3" firstAttribute="top" secondItem="SYb-Xx-USU" secondAttribute="bottom" constant="8" id="CYn-61-z8A"/>
+                                    <constraint firstItem="pu1-n2-nSc" firstAttribute="leading" secondItem="ffX-Mv-79o" secondAttribute="leading" constant="16" id="HMe-ro-A8P"/>
                                     <constraint firstAttribute="height" constant="284" id="Qtz-9r-DVq"/>
                                     <constraint firstAttribute="trailing" secondItem="M1R-HS-xgc" secondAttribute="trailing" constant="16" id="SP8-GG-W4w"/>
                                     <constraint firstItem="M1R-HS-xgc" firstAttribute="top" secondItem="ffX-Mv-79o" secondAttribute="top" constant="89" id="T9l-Cm-ShN"/>
                                     <constraint firstAttribute="centerY" secondItem="SYb-Xx-USU" secondAttribute="centerY" id="XLm-uC-uNN"/>
+                                    <constraint firstItem="pu1-n2-nSc" firstAttribute="top" secondItem="67C-Ey-AV3" secondAttribute="bottom" constant="10" id="b2S-yO-VmC"/>
                                     <constraint firstAttribute="trailing" secondItem="67C-Ey-AV3" secondAttribute="trailing" constant="16" id="l0R-re-ZgI"/>
                                     <constraint firstItem="SYb-Xx-USU" firstAttribute="leading" secondItem="ffX-Mv-79o" secondAttribute="leading" constant="16" id="lNX-iA-dOK"/>
                                     <constraint firstItem="SYb-Xx-USU" firstAttribute="top" secondItem="M1R-HS-xgc" secondAttribute="bottom" constant="8" id="oLi-xF-oi0"/>
@@ -154,6 +170,7 @@
                     <navigationItem key="navigationItem" title="Register" id="IBw-Pb-pcT"/>
                     <connections>
                         <outlet property="emailTextfield" destination="M1R-HS-xgc" id="EZN-co-Khq"/>
+                        <outlet property="errorMessage" destination="pu1-n2-nSc" id="fkc-jT-75M"/>
                         <outlet property="passwordTextfield" destination="SYb-Xx-USU" id="pWb-Ds-G8q"/>
                         <segue destination="vXZ-lx-hvc" kind="push" identifier="goToChat" id="mOy-cb-hAN"/>
                     </connections>
@@ -339,6 +356,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NdW-bI-YIx">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -355,6 +373,6 @@
         <image name="background1" width="1200" height="795"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rRW-Qd-PQi"/>
+        <segue reference="mOy-cb-hAN"/>
     </inferredMetricsTieBreakers>
 </document>

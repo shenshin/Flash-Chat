@@ -9,7 +9,7 @@
 //
 
 import UIKit
-
+import Firebase
 
 class RegisterViewController: UIViewController {
 
@@ -18,10 +18,12 @@ class RegisterViewController: UIViewController {
 
     @IBOutlet var emailTextfield: UITextField!
     @IBOutlet var passwordTextfield: UITextField!
+    @IBOutlet weak var errorMessage: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +37,20 @@ class RegisterViewController: UIViewController {
 
         
         //TODO: Set up a new user on our Firbase database
-        
+        Auth.auth().createUser(withEmail: emailTextfield.text!, password: passwordTextfield.text!) {
+            (user, error) in
+            if let authError = error {
+                self.errorMessage.text = authError.localizedDescription
+                self.errorMessage.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+                
+            } else {
+                print("Пользователь заригистрован по email адресу:")
+                print(user!.user.email!)
+                self.errorMessage.text = ""
+                self.errorMessage.backgroundColor = UIColor.clear
+                self.performSegue(withIdentifier: "goToChat", sender: self)
+            }
+        }
         
 
         
