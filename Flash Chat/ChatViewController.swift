@@ -9,7 +9,9 @@
 import UIKit
 import Firebase
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+
+    
     
     // Declare instance variables here
 
@@ -27,42 +29,61 @@ class ChatViewController: UIViewController {
         
         //TODO: Set yourself as the delegate and datasource here:
         
-        
+        messageTableView.dataSource = self
+        messageTableView.delegate = self
         
         //TODO: Set yourself as the delegate of the text field here:
 
-        
+        messageTextfield.delegate = self
         
         //TODO: Set the tapGesture here:
         
         
 
         //TODO: Register your MessageCell.xib file here:
-
+        messageTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "customMessageCell")
         
+        configureTableView()
     }
 
     ///////////////////////////////////////////
     
     //MARK: - TableView DataSource Methods
     
+
     
+
     
     //TODO: Declare cellForRowAtIndexPath here:
     
-    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath) as! CustomMessageCell
+        
+        let messageArray : [String] = ["Сообщение номер 1", "Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 Сообщение номер 2 ", "Сообщение номер 3"]
+        cell.messageBody.text = messageArray[indexPath.row]
+        
+        return cell
+    }
     
     //TODO: Declare numberOfRowsInSection here:
     
-    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
     
     //TODO: Declare tableViewTapped here:
     
-    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        
+    }
     
     //TODO: Declare configureTableView here:
     
-    
+    func configureTableView(){
+        messageTableView.rowHeight = UITableView.automaticDimension
+        messageTableView.estimatedRowHeight = 120.0
+    }
     
     ///////////////////////////////////////////
     
