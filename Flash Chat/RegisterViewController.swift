@@ -10,6 +10,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class RegisterViewController: UIViewController {
 
@@ -34,16 +35,18 @@ class RegisterViewController: UIViewController {
   
     @IBAction func registerPressed(_ sender: AnyObject) {
         
-
+        SVProgressHUD.show()
         
         //TODO: Set up a new user on our Firbase database
         Auth.auth().createUser(withEmail: emailTextfield.text!, password: passwordTextfield.text!) {
             (user, error) in
             if let authError = error {
+                SVProgressHUD.dismiss()
                 self.errorMessage.text = authError.localizedDescription
                 self.errorMessage.backgroundColor = UIColor.white.withAlphaComponent(0.5)
                 
             } else {
+                SVProgressHUD.dismiss()
                 print("Пользователь заригистрован по email адресу: \(user!.user.email!)")
                 self.errorMessage.text = ""
                 self.errorMessage.backgroundColor = UIColor.clear
